@@ -42,7 +42,7 @@ exports.search = function(req, res) {
                     value=value+' '+arr[i];
                 }
 
-                value='\'\%'+value+'\%\'';
+                value='\''+value+'\'';
 
                 console.log('value is ******'+value);
 
@@ -54,11 +54,11 @@ exports.search = function(req, res) {
                     value1=value1+' '+arr1[i];
                 }
 
-                value1='\'\%'+value1+'\%\'';
+                value1='\''+value1+'\'';
                 console.log('value1 is ******'+value1 );
 
                 console.log(value);
-                var query = 'select itname as name, itdesc as description from category c, item i where c.cid=(select cid from category where cname like '+value+' and resid =(select rid from restaurant where rname like '+value1+') ) AND c.cid=i.catid';
+                var query = 'select itname as name, itdesc as description from category c, item i where c.cid=(select cid from category where cname = '+value+' and resid =(select rid from restaurant where rname = '+value1+') ) AND c.cid=i.catid';
                 console.log(query);
 
                 connection.query(query, function (err, rows) {
