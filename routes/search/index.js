@@ -15,22 +15,7 @@ exports.search = function(req, res) {
     console.log(key);
 
 
-    // Connect to Database
-
-
-
-    var mysql = require('mysql');
-    var connection = mysql.createConnection({
-        host: 'mydb.c3j69nxnbyen.us-west-2.rds.amazonaws.com',
-        user: 'root',
-        password: 'rootroot',
-        database: 'rest'
-    });
-
-
-    connection.connect(function (err) {
-        if (!err) {
-            console.log("Database is connected ... \n\n");
+    // Search Database based on key
 
             if(key=='category'){
 
@@ -174,12 +159,6 @@ exports.search = function(req, res) {
                 res.send(JSON.stringify({data:'Invalid Request'}));
 
             }
-        } else {
-            console.log("Error connecting database ... \n\n");
-        }
-        connection.end();
-    });
-
 
 
 

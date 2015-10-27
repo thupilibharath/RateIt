@@ -9,6 +9,8 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var routes = require('./routes/index');
 var search = require('./routes/search');
+var ratings = require('./routes/ratings');
+var items = require('./routes/items');
 var users = require('./routes/users');
 
 var app = express();
@@ -42,9 +44,20 @@ app.use(function(err, req, res, next) {
 });
 
 
+//DB Connection
+var mysql = require('mysql');
+connection = mysql.createConnection({
+    host: 'mydb.c3j69nxnbyen.us-west-2.rds.amazonaws.com',
+    user: 'root',
+    password: 'rootroot',
+    database: 'rest'
+});
 
 
 app.get('/search', search.search);
+app.get('/giveRating',ratings.postReview);
+app.get('/getRating', ratings.getReview);
+app.get('/getItems',items.getItems);
 //app.get('/searchCategories',search.searchbycategories);
 
 
