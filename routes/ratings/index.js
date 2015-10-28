@@ -7,7 +7,7 @@ var reviewData = req.query.data;
     var newData = reviewData.split(":");
 
     var uname = '\''+newData[0]+'\'';
-    var iname = '\''+newData[1]+'\'';
+    var iname = '\'\%'+newData[1]+'\%\'';
     var review = '\''+newData[2]+'\'';
 
     var arr = iname.split('_');
@@ -37,7 +37,7 @@ var reviewData = req.query.data;
 
     console.log('review '+review);
 
-    var query = 'insert into reviews(usr,iid,review) values('+uname+','+'(select itid from item where itname ='+iname+' limit 1)'+','+review+')';
+    var query = 'insert into reviews(usr,iid,review) values('+uname+','+'(select itid from item where itname like '+iname+' limit 1)'+','+review+')';
 
     console.log(query);
     connection.query(query,function(err,rows) {
@@ -61,7 +61,7 @@ exports.getReview = function(req,res){
     }
 
     console.log(iname);
-    var query = 'select usr,review from reviews where iid= (select itid from item where itname = '+'\''+iname+'\''+' limit 1)';
+    var query = 'select usr,review from reviews where iid= (select itid from item where itname = '+'\''+iname+' \''+' limit 1)';
 
     connection.query(query,function(err,rows) {
         if(err)
