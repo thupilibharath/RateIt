@@ -56,7 +56,6 @@ connection = mysql.createConnection({
 app.get('/search', search.search);
 app.get('/giveRating',ratings.postReview);
 app.get('/getRating', ratings.getReview);
-app.get('/getItems',items.getItems);
 //app.get('/searchCategories',search.searchbycategories);
 
 
