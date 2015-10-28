@@ -10,7 +10,6 @@ var http = require('http');
 var routes = require('./routes/index');
 var search = require('./routes/search');
 var ratings = require('./routes/ratings');
-var items = require('./routes/items');
 var users = require('./routes/users');
 
 var app = express();
