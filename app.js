@@ -11,7 +11,7 @@ var routes = require('./routes/index');
 var search = require('./routes/search');
 var ratings = require('./routes/ratings');
 var users = require('./routes/users');
-
+var items = require('./routes/items');
 var app = express();
 
 
@@ -56,6 +56,7 @@ connection = mysql.createConnection({
 app.get('/search', search.search);
 app.get('/giveRating',ratings.postReview);
 app.get('/getRating', ratings.getReview);
+app.get('/getItems', items.getItems);
 //app.get('/searchCategories',search.searchbycategories);
 
 
