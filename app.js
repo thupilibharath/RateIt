@@ -1,17 +1,15 @@
 
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var session = require('express-session');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
-var routes = require('./routes/index');
 var search = require('./routes/search');
 var ratings = require('./routes/ratings');
-var users = require('./routes/users');
 var items = require('./routes/items');
+var history = require('./routes/history');
+var signup = require('./routes/signup');
 var app = express();
 
 
@@ -57,6 +55,8 @@ app.get('/search', search.search);
 app.get('/giveRating',ratings.postReview);
 app.get('/getRating', ratings.getReview);
 app.get('/getItems', items.getItems);
+app.get('/history', history.getHistory);
+app.get('/signup', signup.signup);
 //app.get('/searchCategories',search.searchbycategories);
 
 

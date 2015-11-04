@@ -9,6 +9,7 @@ var reviewData = req.query.data;
     var uname = '\''+newData[0]+'\'';
     var iname = '\'\%'+newData[1]+'\%\'';
     var review = '\''+newData[2]+'\'';
+    var rating = newData[3];
 
     var arr = iname.split('_');
     iname='';
@@ -37,7 +38,7 @@ var reviewData = req.query.data;
 
     console.log('review '+review);
 
-    var query = 'insert into reviews(usr,iid,review) values('+uname+','+'(select itid from item where itname like '+iname+' limit 1)'+','+review+')';
+    var query = 'insert into reviews(usr,iid,review, rating) values('+uname+','+'(select itid from item where itname like '+iname+' limit 1)'+','+review+','+rating+')';
 
     console.log(query);
     connection.query(query,function(err,rows) {
@@ -45,7 +46,8 @@ var reviewData = req.query.data;
             console.log(err);
         else{
             console.log('Inserted');
-            res.send(JSON.stringify('Review Posted'));
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify('Review Posted', null,3));
         }
     });
 };
@@ -68,7 +70,8 @@ exports.getReview = function(req,res){
             console.log(err);
         else{
             console.log('Sent');
-            res.send(JSON.stringify(rows));
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(rows, null,3));
         }
     });
 };
