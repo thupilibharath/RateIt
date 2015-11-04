@@ -7,6 +7,12 @@ exports.signup = function(req, res){
     var uname = '\''+data1[0]+'\'';
     var pwd = '\''+data1[1]+'\'';
 
+    var arr = uname.split('_');
+    uname='';
+    uname=uname+arr[0];
+    for(var i=1;i<arr.length;i++){
+        uname=uname+' '+arr[i];
+    }
     var query = 'insert into users values ('+uname+','+pwd+')';
 
     console.log(query);
