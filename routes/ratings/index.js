@@ -63,7 +63,7 @@ exports.getReview = function(req,res){
     }
 
     console.log(iname);
-    var query = 'select usr,review from reviews where iid= (select itid from item where itname = '+'\''+iname+' \''+' limit 1)';
+    var query = 'select usr, review, rating from reviews where iid= (select itid from item where itname = '+'\''+iname+' \''+' limit 1)';
 
     console.log(query);
     connection.query(query,function(err,rows) {
