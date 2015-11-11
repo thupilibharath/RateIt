@@ -33,6 +33,8 @@ exports.getReview = function(req,res){
     var uname  = arrData[0];
     var item = arrData[1];
 
+    console.log(uname);
+    console.log(item);
 
     var arr2 = uname.split('_');
     uname='';
