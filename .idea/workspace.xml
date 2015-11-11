@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7ccbef57-babb-47ed-a7e0-cad26e9ad2be" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/history/index.js" afterPath="$PROJECT_DIR$/routes/history/index.js" />
     </list>
     <ignored path="RateIt.iws" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/history/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5302198">
-              <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.32142857">
+              <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -79,8 +78,8 @@
         <option value="$PROJECT_DIR$/routes/Items/index.js" />
         <option value="$PROJECT_DIR$/routes/signup/index.js" />
         <option value="$PROJECT_DIR$/routes/ratings/index.js" />
-        <option value="$PROJECT_DIR$/routes/history/index.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/history/index.js" />
       </list>
     </option>
   </component>
@@ -329,7 +328,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447269015022</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Updated Signup">
+      <created>1447276490679</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1447276490679</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -788,8 +793,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/history/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5302198">
-          <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.32142857">
+          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
