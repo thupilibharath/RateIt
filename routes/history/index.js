@@ -12,7 +12,7 @@ exports.getHistory = function(req,res){
         uname=uname+' '+arr2[i];
     }
 
-    var query = 'select review, rating, (select itname from item where itid = iid) as item from reviews where usr = '+uname;
+    var query = 'select rating, (select itname from item where itid = iid) as item, (select rname from newrest where itid = iid) as rest from reviews where usr = '+uname;
     console.log(query);
     connection.query(query,function(err,rows) {
         if(err)
