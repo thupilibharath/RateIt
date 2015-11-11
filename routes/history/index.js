@@ -43,6 +43,8 @@ exports.getReview = function(req,res){
 
     uname = '\''+uname+'\'';
 
+    console.log(uname);
+
     var arr3 = item.split('_');
     item='';
     item=item+arr2[1];
@@ -51,6 +53,8 @@ exports.getReview = function(req,res){
     }
 
     item = '\''+item+'\'';
+
+    console.log(item);
 
 
     var query = 'select review from reviews where iid = (select itid from item where itname = '+item+' limit 1) and usr = '+uname;
