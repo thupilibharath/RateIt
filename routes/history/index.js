@@ -49,7 +49,7 @@ exports.getReview = function(req,res){
 
     var arr3 = item.split('_');
     item='';
-    item=item+arr3[1];
+    item=item+arr3[0];
     for(var i=1;i<arr3.length;i++){
         item=item+' '+arr3[i];
     }
