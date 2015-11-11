@@ -49,9 +49,9 @@ exports.getReview = function(req,res){
 
     var arr3 = item.split('_');
     item='';
-    item=item+arr2[1];
-    for(var i=1;i<arr2.length;i++){
-        item=item+' '+arr2[i];
+    item=item+arr3[1];
+    for(var i=1;i<arr3.length;i++){
+        item=item+' '+arr3[i];
     }
 
     item = '\''+item+'\'';
