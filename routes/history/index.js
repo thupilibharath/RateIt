@@ -25,3 +25,44 @@ exports.getHistory = function(req,res){
     });
 
 };
+
+exports.getReview = function(req,res){
+
+    var postData = req.query.data;
+    var arrData = postData.split(":");
+    var uname  = arrData[0];
+    var item = arrData[1];
+
+
+    var arr2 = uname.split('_');
+    uname='';
+    uname=uname+arr2[0];
+    for(var i=1;i<arr2.length;i++){
+        uname=uname+' '+arr2[i];
+    }
+
+    uname = '\''+uname+'\'';
+
+    var arr3 = item.split('_');
+    item='';
+    item=item+arr2[0];
+    for(var i=1;i<arr2.length;i++){
+        item=item+' '+arr2[i];
+    }
+
+    item = '\''+item+'\'';
+
+
+    var query = 'select review from reviews where iid = (select itid from item where itname = '+item+' limit 1) and usr = '+uname;
+    console.log(query);
+    connection.query(query,function(err,rows) {
+        if(err)
+            console.log(err);
+        else{
+            console.log('Sending reviews of user');
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(rows,null,3));
+        }
+    });
+
+};

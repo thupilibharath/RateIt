@@ -56,6 +56,7 @@ app.get('/giveRating',ratings.postReview);
 app.get('/getRating', ratings.getReview);
 app.get('/getItems', items.getItems);
 app.get('/history', history.getHistory);
+app.get('/history1', history.getReview);
 app.get('/signup', signup.signup);
 //app.get('/searchCategories',search.searchbycategories);
 
