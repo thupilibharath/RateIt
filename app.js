@@ -44,7 +44,7 @@ app.use(function(err, req, res, next) {
 //DB Connection
 var mysql = require('mysql');
 connection = mysql.createConnection({
-    host: 'mydb.c3j69nxnbyen.us-west-2.rds.amazonaws.com',
+    host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
     user: 'root',
     password: 'rootroot',
     database: 'rest'
