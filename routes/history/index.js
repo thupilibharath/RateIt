@@ -12,7 +12,7 @@ exports.getHistory = function(req,res){
         uname=uname+' '+arr2[i];
     }
 
-    var query = 'select rating, (select itname from item where itid = iid) as item, (select rname from newrest where itid = iid) as rest, rtime from reviews where rating is not null and usr = '+uname+' order by rest';
+    var query = 'select rating, (select itname from item where itid = iid) as item, (select rname from newrest where itid = iid) as rest, from reviews where rating is not null and usr = '+uname+' order by rest';
     console.log(query);
     connection.query(query,function(err,rows) {
         if(err)
@@ -59,7 +59,7 @@ exports.getReview = function(req,res){
     console.log(item);
 
 
-    var query = 'select rating, review from reviews where iid = (select itid from item where itname = '+item+' limit 1) and usr = '+uname;
+    var query = 'select rating, review, rtime from reviews where iid = (select itid from item where itname = '+item+' limit 1) and usr = '+uname;
     console.log(query);
     connection.query(query,function(err,rows) {
         if(err)
