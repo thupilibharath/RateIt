@@ -50,7 +50,9 @@ connection = mysql.createConnection({
     database: 'rest'
 });
 
-
+app.get('/', function(req, res){
+    res.json('I am Alive');
+});
 app.get('/search', search.search);
 app.get('/giveRating',ratings.postReview);
 app.get('/getRating', ratings.getReview);
