@@ -63,7 +63,7 @@ exports.search = function(req, res) {
                         res.setHeader('Content-Type', 'application/json');
                         res.send(JSON.stringify(rows,null,3));
                     }
-                    connection.end();
+                    connection.release();
 
                 });
 
@@ -103,7 +103,7 @@ exports.search = function(req, res) {
                         res.send(JSON.stringify(rows,null,3));
                     }
 
-                    connection.end();
+                    connection.release();
                 });
 
                 //connection.close();
@@ -140,7 +140,7 @@ exports.search = function(req, res) {
                         res.send(JSON.stringify(rows,null,3));
                     }
 
-                    connection.end();
+                    connection.release();
                 });
 
                 //connection.close();

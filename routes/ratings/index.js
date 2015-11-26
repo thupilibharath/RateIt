@@ -51,7 +51,7 @@ var reviewData = req.query.data;
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify('Review Posted', null,3));
         }
-        connection.end();
+        connection.release();
     });
     });
 };
@@ -80,7 +80,7 @@ exports.getReview = function(req,res){
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(rows, null,3));
         }
-        connection.end();
+        connection.release();
     });
     });
 };

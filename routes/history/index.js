@@ -79,7 +79,7 @@ exports.getReview = function(req,res){
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(rows,null,3));
         }
-        connection.end();
+        connection.release();
     });
     });
 

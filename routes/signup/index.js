@@ -29,7 +29,7 @@ exports.signup = function(req, res){
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify('User Registered', null,3));
         }
-        connection.end();
+        connection.release();
     });
     });
 
