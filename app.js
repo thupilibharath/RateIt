@@ -44,6 +44,13 @@ app.use(function(err, req, res, next) {
 //DB Connection
 mysql = require('mysql');
 
+pool = mysql.createPool({
+  host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
+  user: 'root',
+  password: 'rootroot',
+  database: 'rest'
+});
+
 app.get('/', function(req, res){
     res.json('I am Alive');
 });

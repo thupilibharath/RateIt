@@ -67,12 +67,7 @@ exports.getReview = function(req,res){
     console.log(item);
 
 
-    var connection = mysql.createConnection({
-        host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
-        user: 'root',
-        password: 'rootroot',
-        database: 'rest'
-    });
+    pool.getConnection(function(err, connection){
 
     var query = 'select rating, review, rtime from reviews where iid = (select itid from item where itname = '+item+' limit 1) and usr = '+uname;
     console.log(query);
@@ -85,6 +80,7 @@ exports.getReview = function(req,res){
             res.send(JSON.stringify(rows,null,3));
         }
         connection.end();
+    });
     });
 
 };

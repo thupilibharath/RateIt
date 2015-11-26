@@ -3,12 +3,7 @@
  */
 exports.signup = function(req, res){
   var data = req.query.data;
-    var connection = mysql.createConnection({
-        host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
-        user: 'root',
-        password: 'rootroot',
-        database: 'rest'
-    });
+
 
     var data1 = data.split(':');
     var uname = '\''+data1[0]+'\'';
@@ -23,6 +18,7 @@ exports.signup = function(req, res){
     var query = 'insert into users values ('+uname+','+pwd+')';
 
     console.log(query);
+    pool.getConnection(function(err,connection){
     connection.query(query,function(err,rows) {
         if(err) {
             console.log(err);
@@ -34,6 +30,7 @@ exports.signup = function(req, res){
             res.send(JSON.stringify('User Registered', null,3));
         }
         connection.end();
+    });
     });
 
 
