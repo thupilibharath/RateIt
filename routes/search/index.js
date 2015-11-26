@@ -13,6 +13,13 @@ exports.search = function(req, res) {
     var key  = arrData[0];
     var value = arrData[1];
     console.log(key);
+    var connection = mysql.createConnection({
+        host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
+        user: 'root',
+        password: 'rootroot',
+        database: 'rest'
+    });
+
 
 
     // Search Database based on key
@@ -61,6 +68,7 @@ exports.search = function(req, res) {
                         res.setHeader('Content-Type', 'application/json');
                         res.send(JSON.stringify(rows,null,3));
                     }
+                    connection.end();
 
                 });
 
@@ -100,6 +108,7 @@ exports.search = function(req, res) {
                         res.send(JSON.stringify(rows,null,3));
                     }
 
+                    connection.end();
                 });
 
                 //connection.close();
@@ -136,6 +145,7 @@ exports.search = function(req, res) {
                         res.send(JSON.stringify(rows,null,3));
                     }
 
+                    connection.end();
                 });
 
                 //connection.close();

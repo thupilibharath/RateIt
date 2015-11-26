@@ -11,6 +11,14 @@ exports.getItems = function(req,res){
         rname=rname+' '+arr[i];
     }
 
+    var connection = mysql.createConnection({
+        host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
+        user: 'root',
+        password: 'rootroot',
+        database: 'rest'
+    });
+
+
     console.log(rname);
     var query = 'select iname from newrest where rname= '+'\''+rname+'\'';
 
@@ -22,5 +30,6 @@ exports.getItems = function(req,res){
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(rows,null,3));
         }
+        connection.end();
     });
 };

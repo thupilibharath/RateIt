@@ -38,6 +38,14 @@ var reviewData = req.query.data;
 
     console.log('review '+review);
 
+    var connection = mysql.createConnection({
+        host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
+        user: 'root',
+        password: 'rootroot',
+        database: 'rest'
+    });
+
+
     var query = 'insert into reviews(usr,iid,review, rating) values('+uname+','+'(select itid from item where itname like '+iname+' limit 1)'+','+review+','+rating+')';
 
     console.log(query);
@@ -49,6 +57,7 @@ var reviewData = req.query.data;
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify('Review Posted', null,3));
         }
+        connection.end();
     });
 };
 
@@ -65,6 +74,13 @@ exports.getReview = function(req,res){
     console.log(iname);
     var query = 'select usr, review, rating from reviews where iid= (select itid from item where itname = '+'\''+iname+' \''+' limit 1)';
 
+    var connection = mysql.createConnection({
+        host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
+        user: 'root',
+        password: 'rootroot',
+        database: 'rest'
+    });
+
     console.log(query);
     connection.query(query,function(err,rows) {
         if(err)
@@ -74,6 +90,7 @@ exports.getReview = function(req,res){
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(rows, null,3));
         }
+        connection.end();
     });
 };
 

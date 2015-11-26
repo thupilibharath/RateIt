@@ -42,13 +42,7 @@ app.use(function(err, req, res, next) {
 
 
 //DB Connection
-var mysql = require('mysql');
-connection = mysql.createConnection({
-    host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
-    user: 'root',
-    password: 'rootroot',
-    database: 'rest'
-});
+mysql = require('mysql');
 
 app.get('/', function(req, res){
     res.json('I am Alive');
