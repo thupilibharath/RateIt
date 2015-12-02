@@ -42,10 +42,10 @@ app.use(function(err, req, res, next) {
 
 
 //DB Connection
-mysql = require('mysql');
+mysql = require('mysql2');
 
 pool = mysql.createPool({
-  host: 'mydb.cev9f9km5ing.us-east-1.rds.amazonaws.com',
+  host: 'mydb2.cev9f9km5ing.us-east-1.rds.amazonaws.com',
   user: 'root',
   password: 'rootroot',
   database: 'rest'
