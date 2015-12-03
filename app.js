@@ -52,7 +52,10 @@ pool = mysql.createPool({
 });
 
 app.get('/', function(req, res){
+  pool.getConnection(function(err, connection) {
+    connection.query('SELECT 1');
     res.json('I am Alive');
+  });
 });
 app.get('/search', search.search);
 app.get('/giveRating',ratings.postReview);
