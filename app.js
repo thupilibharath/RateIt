@@ -55,6 +55,7 @@ app.get('/', function(req, res){
   pool.getConnection(function(err, connection) {
     connection.query('SELECT 1');
     res.json('I am Alive');
+    connection.release();
   });
 });
 app.get('/search', search.search);
