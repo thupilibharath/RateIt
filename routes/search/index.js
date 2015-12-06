@@ -14,9 +14,6 @@ exports.search = function(req, res) {
     var value = arrData[1];
     console.log(key);
 
-    pool.getConnection(function(err,connection){
-
-
     // Search Database based on key
 
             if(key=='category'){
@@ -63,7 +60,6 @@ exports.search = function(req, res) {
                         res.setHeader('Content-Type', 'application/json');
                         res.send(JSON.stringify(rows,null,3));
                     }
-                    connection.release();
 
                 });
 
@@ -103,7 +99,6 @@ exports.search = function(req, res) {
                         res.send(JSON.stringify(rows,null,3));
                     }
 
-                    connection.release();
                 });
 
                 //connection.close();
@@ -140,7 +135,6 @@ exports.search = function(req, res) {
                         res.send(JSON.stringify(rows,null,3));
                     }
 
-                    connection.release();
                 });
 
                 //connection.close();
@@ -164,8 +158,6 @@ exports.search = function(req, res) {
                 res.send(JSON.stringify({data:'Invalid Request'}));
 
             }
-    });
-
 
 
 

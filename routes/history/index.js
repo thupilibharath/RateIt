@@ -12,7 +12,6 @@ exports.getHistory = function(req,res){
         uname=uname+' '+arr2[i];
     }
 
-    pool.getConnection(function(err, connection) {
         var query = 'select rating, (select itname from item where itid = iid) as item, (select rname from newrest where itid = iid) as rest from reviews where rating is not null and usr = ' + uname + ' order by rest';
         console.log(query);
         connection.query(query, function (err, rows) {
@@ -24,7 +23,6 @@ exports.getHistory = function(req,res){
                 res.send(JSON.stringify(rows, null, 3));
             }
         });
-    });
 
 };
 
@@ -61,8 +59,6 @@ exports.getReview = function(req,res){
     console.log(item);
 
 
-    pool.getConnection(function(err, connection){
-
     var query = 'select rating, review, rtime from reviews where iid = (select itid from item where itname = '+item+' limit 1) and usr = '+uname;
     console.log(query);
     connection.query(query,function(err,rows) {
@@ -73,8 +69,7 @@ exports.getReview = function(req,res){
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(rows,null,3));
         }
-        connection.release();
-    });
+
     });
 
 };

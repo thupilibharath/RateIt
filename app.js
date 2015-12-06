@@ -44,7 +44,7 @@ app.use(function(err, req, res, next) {
 //DB Connection
 mysql = require('mysql2');
 
-pool = mysql.createPool({
+connection = mysql.createConnection({
   host: 'mydb2.cev9f9km5ing.us-east-1.rds.amazonaws.com',
   user: 'root',
   password: 'rootroot',
@@ -52,12 +52,9 @@ pool = mysql.createPool({
 });
 
 app.get('/', function(req, res){
-  pool.getConnection(function(err, connection) {
-    connection.query('SELECT 1');
+  connection.query('SELECT 1');
     res.json('I am Alive');
-    connection.release();
   });
-});
 app.get('/search', search.search);
 app.get('/giveRating',ratings.postReview);
 app.get('/getRating', ratings.getReview);

@@ -18,7 +18,6 @@ exports.signup = function(req, res){
     var query = 'insert into users values ('+uname+','+pwd+')';
 
     console.log(query);
-    pool.getConnection(function(err,connection){
     connection.query(query,function(err,rows) {
         if(err) {
             console.log(err);
@@ -29,8 +28,6 @@ exports.signup = function(req, res){
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify('User Registered', null,3));
         }
-        connection.release();
-    });
     });
 
 

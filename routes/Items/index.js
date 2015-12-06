@@ -11,9 +11,6 @@ exports.getItems = function(req,res){
         rname=rname+' '+arr[i];
     }
 
-
-
-    pool.getConnection(function(err, connection){
     console.log(rname);
     var query = 'select iname from newrest where rname= '+'\''+rname+'\'';
 
@@ -25,7 +22,5 @@ exports.getItems = function(req,res){
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(rows,null,3));
         }
-        connection.release();
-    });
     });
 };
