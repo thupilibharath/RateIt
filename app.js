@@ -57,7 +57,8 @@ app.get('/', function(req, res){
   });
 app.get('/search', search.search);
 app.get('/giveRating',ratings.postReview);
-app.get('/getRating', ratings.getReview);
+app.get('/getRating', ratings.getReview)
+app.get('/getRating1', ratings.getReview1);
 app.get('/getItems', items.getItems);
 app.get('/history', history.getHistory);
 app.get('/history1', history.getReview);
