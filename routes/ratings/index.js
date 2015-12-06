@@ -38,8 +38,6 @@ var reviewData = req.query.data;
 
     console.log('review '+review);
 
-    pool.getConnection(function(err, connection){
-
     var query = 'insert into reviews(usr,iid,review, rating) values('+uname+','+'(select itid from item where itname like '+iname+' limit 1)'+','+review+','+rating+')';
 
     console.log(query);
@@ -51,7 +49,6 @@ var reviewData = req.query.data;
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify('Review Posted', null,3));
         }
-    });
     });
 };
 
