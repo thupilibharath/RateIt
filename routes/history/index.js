@@ -28,7 +28,7 @@ exports.getHistory = function(req,res){
 
 exports.getReview = function(req,res){
 
-    console.log('**********REVIEW-------->');
+    console.log('**********REVIEW-------->');//lala
 
     var postData = req.query.data;
     var arrData = postData.split(":");
