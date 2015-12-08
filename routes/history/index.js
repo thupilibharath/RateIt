@@ -28,6 +28,8 @@ exports.getHistory = function(req,res){
 
 exports.getReview = function(req,res){
 
+    console.log('**********REVIEW-------->');
+
     var postData = req.query.data;
     var arrData = postData.split(":");
     var uname  = arrData[0];
@@ -65,6 +67,7 @@ exports.getReview = function(req,res){
         if(err)
             console.log(err);
         else{
+            console.log(rows);
             console.log('Sending reviews of user');
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(rows,null,3));
