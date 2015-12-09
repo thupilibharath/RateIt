@@ -68,8 +68,10 @@ exports.getReview = function(req,res){
         if(err)
             console.log(err);
         else{
+            var moment = require('moment-timezone');
             for(var i=0;i<rows.length;i++){
-                rows[i].rtime = rows[i].rtime.toString().substring(0,24);
+                var str = moment(rows[i].rtime.toString());
+                rows[i].rtime = str.tz('America/New_York').format('ha z');
             }
             console.log(rows);
 
