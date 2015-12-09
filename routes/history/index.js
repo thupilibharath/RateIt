@@ -70,7 +70,7 @@ exports.getReview = function(req,res){
             var moment = require('moment-timezone');
             for(var i=0;i<rows.length;i++){
                 var str = moment(rows[i].rtime.toString());
-                rows[i].rtime = str.tz('America/New_York').format('MMM Do YYYY hh mm z');
+                rows[i].rtime = str.tz('America/New_York').format('MMM Do YYYY hh:mm z');
             }
             console.log(rows);
 
