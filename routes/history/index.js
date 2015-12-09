@@ -70,7 +70,7 @@ exports.getReview = function(req,res){
         else{
             var arrnew = [];
             for(var i=0;i<rows.length;i++){
-                arrnew[i] = rows[i].rtime.toString();
+                arrnew[i] = rows[i].rtime.toString().substring(0,24);
             }
             console.log(arrnew);
             console.log(rows);
