@@ -61,8 +61,7 @@ exports.getReview = function(req,res){
     console.log(item);
 
 
-    var query = 'select * from reviews order by rtime desc limit 5';
-    //var query = 'select rating, review, rtime from reviews where iid = (select itid from item where itname = '+item+' limit 1) and usr = '+uname;
+    var query = 'select rating, review, rtime from reviews where iid = (select itid from item where itname = '+item+' limit 1) and usr = '+uname;
     console.log(query);
     connection.query(query,function(err,rows) {
         if(err)
@@ -71,7 +70,7 @@ exports.getReview = function(req,res){
             var moment = require('moment-timezone');
             for(var i=0;i<rows.length;i++){
                 var str = moment(rows[i].rtime.toString());
-                rows[i].rtime = str.tz('America/New_York').format('MMM Do YYYY ha z');
+                rows[i].rtime = str.tz('America/New_York').format('MMM Do YYYY hA Z z');
             }
             console.log(rows);
 
