@@ -68,7 +68,13 @@ exports.getReview = function(req,res){
         if(err)
             console.log(err);
         else{
+            var arrnew = [];
+            for(var i=0;i<rows.length;i++){
+                arrnew[i].time = rows[i].rtime.toString();
+            }
+            console.log(arrnew);
             console.log(rows);
+
             console.log('Sending reviews of user');
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(rows,null,3));
